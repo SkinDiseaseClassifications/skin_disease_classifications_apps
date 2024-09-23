@@ -49,7 +49,7 @@ Make sure the device you want to use is powered on.
 3. Update the IP address in the .env file using the following command, replacing x.x.x.x with your IP address.
 
 > [!CAUTION]
-> Before running the application, ensure that the API is operational. If not, please follow the step-by-step instructions in the documentation [here](https://github.com/SkinDiseaseClassifications/skin_disease_classifications_api?tab=readme-ov-file#api-skin-disease-classifications).
+> Before running the application, ensure that the API is running. If not, please follow the step-by-step instructions in the documentation [here](https://github.com/SkinDiseaseClassifications/skin_disease_classifications_api?tab=readme-ov-file#api-skin-disease-classifications).
 
 #### You can install the app on your device by running the following command in your terminal:
 
