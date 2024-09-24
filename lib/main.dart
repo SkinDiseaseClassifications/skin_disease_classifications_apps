@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: materialTheme.light(),
-      darkTheme: materialTheme.dark(),
+      darkTheme: materialTheme.light(),
       title: 'Skin Disease Classification',
       home: HomePage(),
     );
