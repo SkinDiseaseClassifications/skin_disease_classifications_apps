@@ -2,6 +2,9 @@
 
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
+import 'package:skin_disease_classifications/localization.dart';
+import 'package:skin_disease_classifications/main.dart';
 
 class ResultPage extends StatelessWidget {
   final Map<String, dynamic> details;
@@ -11,12 +14,12 @@ class ResultPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isHealthy = details['class'] == 'Sehat';
+    bool isHealthy = details['class_id'] == 3;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Hasil Klasifikasi',
+          AppLocale.classificationResults.getString(context),
           style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
@@ -78,7 +81,8 @@ class ResultPage extends StatelessWidget {
                                   Icon(Icons.subject),
                                   SizedBox(width: 4),
                                   Text(
-                                    'Hasil Klasifikasi',
+                                    AppLocale.classificationResults
+                                        .getString(context),
                                     style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold),
@@ -115,7 +119,7 @@ class ResultPage extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
-                                      'Gejala:',
+                                      AppLocale.signs.getString(context),
                                       style: TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500),
@@ -148,7 +152,7 @@ class ResultPage extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
-                                      'Sumber: ${details['source']}',
+                                      context.formatString('%a ${details['source']}', [AppLocale.source, 'Source']),
                                       style: TextStyle(
                                           fontSize: 16,
                                           fontStyle: FontStyle.italic),

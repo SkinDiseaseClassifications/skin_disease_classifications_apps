@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:http/http.dart' as http;
@@ -7,6 +8,7 @@ import 'package:path/path.dart' as Path;
 import 'package:mime/mime.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:image_cropper/image_cropper.dart';
+import 'package:skin_disease_classifications/localization.dart';
 import 'package:skin_disease_classifications/ui/tutorial_page.dart';
 import 'result_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -29,7 +31,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Color(0xfffafafa),
       appBar: AppBar(
         title: Text(
-          'Beranda',
+          AppLocale.title.getString(context),
           style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
@@ -51,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                           Row(
                             children: [
                               Text(
-                                'Unggah Gambar',
+                                AppLocale.uploadImage.getString(context),
                                 style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
@@ -75,7 +77,9 @@ class _HomePageState extends State<HomePage> {
                           FilledButton.tonalIcon(
                             onPressed: _takePicture,
                             icon: Icon(Icons.photo_camera),
-                            label: Text('Ambil Gambar'),
+                            label: Text(
+                              AppLocale.takePicture.getString(context),
+                            ),
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(
                                   double.infinity, 48), // Full width button
@@ -90,7 +94,8 @@ class _HomePageState extends State<HomePage> {
                           FilledButton.tonalIcon(
                             onPressed: _pickImageFromGallery,
                             icon: Icon(Icons.photo_library),
-                            label: Text('Buka Galeri'),
+                            label:
+                                Text(AppLocale.openGallery.getString(context)),
                             style: ElevatedButton.styleFrom(
                               minimumSize: Size(
                                   double.infinity, 48), // Full width button
@@ -109,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Pratinjau',
+                        AppLocale.preview.getString(context),
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -136,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                         onPressed: _imageFile != null && !_isLoading
                             ? _uploadImage
                             : null,
-                        child: Text('Konfirmasi'),
+                        child: Text(AppLocale.confirm.getString(context)),
                         style: ElevatedButton.styleFrom(
                           minimumSize:
                               Size(double.infinity, 48), // Full width button
@@ -157,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                       CircularProgressIndicator(),
                       SizedBox(height: 16),
                       Text(
-                        'Sedang Memproses Gambar...',
+                        AppLocale.processingImage.getString(context),
                         style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ],

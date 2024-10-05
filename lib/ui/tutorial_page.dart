@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
+import 'package:skin_disease_classifications/localization.dart';
+import 'package:skin_disease_classifications/main.dart';
 
 class TutorialPage extends StatelessWidget {
   const TutorialPage({super.key});
@@ -7,42 +10,42 @@ class TutorialPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String, String>> _instructions = [
       {
-        'title': 'Fokus pada Area Kulit yang Relevan',
+        'title': AppLocale.focusRelevantSkinArea.getString(context),
         'correctImage': 'assets/images/4_1.jpg',
         'incorrectImage': 'assets/images/4_2.jpg',
       },
       {
-        'title': 'Ambil Gambar dengan Jarak yang Tepat',
+        'title': AppLocale.takeProperDistanceImage.getString(context),
         'correctImage': 'assets/images/6_1.jpg',
         'incorrectImage': 'assets/images/6_2.jpg',
       },
       {
-        'title': 'Hindari Berada di depan Sumber Cahaya',
+        'title': AppLocale.avoidFacingLightSource.getString(context),
         'correctImage': 'assets/images/3_1.jpg',
         'incorrectImage': 'assets/images/3_2.jpg',
       },
       {
-        'title': 'Hindari Cahaya yang Terlalu Terang',
+        'title': AppLocale.avoidTooBrightLight.getString(context),
         'correctImage': 'assets/images/2_1.jpg',
         'incorrectImage': 'assets/images/2_2.jpg',
       },
       {
-        'title': 'Jangan Terlalu Gelap',
+        'title': AppLocale.avoidTooDark.getString(context),
         'correctImage': 'assets/images/1_1.jpg',
         'incorrectImage': 'assets/images/1_2.jpg',
       },
       {
-        'title': 'Jangan Menutupi Area Kulit',
+        'title': AppLocale.doNotCoverSkinArea.getString(context),
         'correctImage': 'assets/images/5_1.jpg',
         'incorrectImage': 'assets/images/5_2.jpg',
       },
       {
-        'title': 'Pastikan Gambar Tampak jelas',
+        'title': AppLocale.ensureImageIsClear.getString(context),
         'correctImage': 'assets/images/7_1.jpg',
         'incorrectImage': 'assets/images/7_2.jpg',
       },
       {
-        'title': 'Jangan Gunakan Filter atau Efek Kamera',
+        'title': AppLocale.doNotUseFiltersOrEffects.getString(context),
         'correctImage': 'assets/images/8_1.jpg',
         'incorrectImage': 'assets/images/8_2.jpg',
       },
@@ -51,7 +54,7 @@ class TutorialPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Panduan',
+          AppLocale.tutorial.getString(context),
           style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
@@ -109,7 +112,7 @@ class TutorialPage extends StatelessWidget {
                         color: Colors.green,
                       ),
                       SizedBox(width: 4),
-                      Text('Benar'),
+                      Text(AppLocale.correct.getString(context)),
                     ],
                   ),
                 ],
@@ -133,7 +136,7 @@ class TutorialPage extends StatelessWidget {
                         color: Colors.red,
                       ),
                       SizedBox(width: 4),
-                      Text('Salah'),
+                      Text(AppLocale.wrong.getString(context)),
                     ],
                   ),
                 ],
